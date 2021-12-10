@@ -461,9 +461,13 @@ class Ui_Ignite(object):
         if tg == "T":
             self.translate_label.setText("T")
             self.generate_label.setText(" ")
+            self.upper_label.setText("S :")
+            self.lower_label.setText("C :")
         elif tg == "G":
             self.translate_label.setText(" ")
             self.generate_label.setText("G")
+            self.upper_label.setText("C :")
+            self.lower_label.setText("S :")
     def codetype(self, ct):
         if ct == 1:
             self.codetype1.setText("CODE TYPE 1")
