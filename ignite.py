@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
+word = ""
 class Ui_Ignite(object):
     def setupUi(self, Ignite):
         Ignite.setObjectName("Ignite")
@@ -55,261 +55,327 @@ class Ui_Ignite(object):
         self.lower_label_output.setFont(font)
         self.lower_label_output.setText("")
         self.lower_label_output.setObjectName("lower_label_output")
-        self.A_button = QtWidgets.QPushButton(self.centralwidget)
+
+        """--------------------------------------------alphabets--------------------------------------------------"""
+
+        #A
+        self.A_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("A"))
         self.A_button.setGeometry(QtCore.QRect(20, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.A_button.setFont(font)
         self.A_button.setObjectName("A_button")
-        self.B_button = QtWidgets.QPushButton(self.centralwidget)
+        #B
+        self.B_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("B"))
         self.B_button.setGeometry(QtCore.QRect(70, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.B_button.setFont(font)
         self.B_button.setObjectName("B_button")
-        self.D_button = QtWidgets.QPushButton(self.centralwidget)
-        self.D_button.setGeometry(QtCore.QRect(170, 220, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.D_button.setFont(font)
-        self.D_button.setObjectName("D_button")
-        self.C_button = QtWidgets.QPushButton(self.centralwidget)
+        #C
+        self.C_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("C"))
         self.C_button.setGeometry(QtCore.QRect(120, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.C_button.setFont(font)
         self.C_button.setObjectName("C_button")
-        self.F_button = QtWidgets.QPushButton(self.centralwidget)
-        self.F_button.setGeometry(QtCore.QRect(270, 220, 41, 41))
+        #D
+        self.D_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("D"))
+        self.D_button.setGeometry(QtCore.QRect(170, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.F_button.setFont(font)
-        self.F_button.setObjectName("F_button")
-        self.E_button = QtWidgets.QPushButton(self.centralwidget)
+        self.D_button.setFont(font)
+        self.D_button.setObjectName("D_button")
+        #E
+        self.E_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("E"))
         self.E_button.setGeometry(QtCore.QRect(220, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.E_button.setFont(font)
         self.E_button.setObjectName("E_button")
-        self.H_button = QtWidgets.QPushButton(self.centralwidget)
-        self.H_button.setGeometry(QtCore.QRect(70, 270, 41, 41))
+        #F
+        self.F_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("F"))
+        self.F_button.setGeometry(QtCore.QRect(270, 220, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.H_button.setFont(font)
-        self.H_button.setObjectName("H_button")
-        self.L_button = QtWidgets.QPushButton(self.centralwidget)
-        self.L_button.setGeometry(QtCore.QRect(270, 270, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.L_button.setFont(font)
-        self.L_button.setObjectName("L_button")
-        self.G_button = QtWidgets.QPushButton(self.centralwidget)
+        self.F_button.setFont(font)
+        self.F_button.setObjectName("F_button")
+        #G
+        self.G_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("G"))
         self.G_button.setGeometry(QtCore.QRect(20, 270, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.G_button.setFont(font)
         self.G_button.setObjectName("G_button")
-        self.I_button = QtWidgets.QPushButton(self.centralwidget)
+        #H
+        self.H_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("H"))
+        self.H_button.setGeometry(QtCore.QRect(70, 270, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.H_button.setFont(font)
+        self.H_button.setObjectName("H_button")
+        #I
+        self.I_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("I"))
         self.I_button.setGeometry(QtCore.QRect(120, 270, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.I_button.setFont(font)
         self.I_button.setObjectName("I_button")
-        self.J_button = QtWidgets.QPushButton(self.centralwidget)
+        #J
+        self.J_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("J"))
         self.J_button.setGeometry(QtCore.QRect(170, 270, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.J_button.setFont(font)
         self.J_button.setObjectName("J_button")
-        self.K_button = QtWidgets.QPushButton(self.centralwidget)
+        #K
+        self.K_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("K"))
         self.K_button.setGeometry(QtCore.QRect(220, 270, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.K_button.setFont(font)
         self.K_button.setObjectName("K_button")
-        self.N_button = QtWidgets.QPushButton(self.centralwidget)
-        self.N_button.setGeometry(QtCore.QRect(70, 320, 41, 41))
+        #L
+        self.L_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("L"))
+        self.L_button.setGeometry(QtCore.QRect(270, 270, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.N_button.setFont(font)
-        self.N_button.setObjectName("N_button")
-        self.R_button = QtWidgets.QPushButton(self.centralwidget)
-        self.R_button.setGeometry(QtCore.QRect(270, 320, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.R_button.setFont(font)
-        self.R_button.setObjectName("R_button")
-        self.M_button = QtWidgets.QPushButton(self.centralwidget)
+        self.L_button.setFont(font)
+        self.L_button.setObjectName("L_button")
+        #M
+        self.M_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("M"))
         self.M_button.setGeometry(QtCore.QRect(20, 320, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.M_button.setFont(font)
         self.M_button.setObjectName("M_button")
-        self.O_button = QtWidgets.QPushButton(self.centralwidget)
+        #N
+        self.N_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("N"))
+        self.N_button.setGeometry(QtCore.QRect(70, 320, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.N_button.setFont(font)
+        self.N_button.setObjectName("N_button")
+        #O
+        self.O_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("O"))
         self.O_button.setGeometry(QtCore.QRect(120, 320, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.O_button.setFont(font)
         self.O_button.setObjectName("O_button")
-        self.P_button = QtWidgets.QPushButton(self.centralwidget)
+        #P
+        self.P_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("P"))
         self.P_button.setGeometry(QtCore.QRect(170, 320, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.P_button.setFont(font)
         self.P_button.setObjectName("P_button")
-        self.Q_button = QtWidgets.QPushButton(self.centralwidget)
+        #Q
+        self.Q_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("Q"))
         self.Q_button.setGeometry(QtCore.QRect(220, 320, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.Q_button.setFont(font)
         self.Q_button.setObjectName("Q_button")
-        self.T_button = QtWidgets.QPushButton(self.centralwidget)
-        self.T_button.setGeometry(QtCore.QRect(70, 370, 41, 41))
+        #R
+        self.R_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("R"))
+        self.R_button.setGeometry(QtCore.QRect(270, 320, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.T_button.setFont(font)
-        self.T_button.setObjectName("T_button")
-        self.X_button = QtWidgets.QPushButton(self.centralwidget)
-        self.X_button.setGeometry(QtCore.QRect(270, 370, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.X_button.setFont(font)
-        self.X_button.setObjectName("X_button")
-        self.S_button = QtWidgets.QPushButton(self.centralwidget)
+        self.R_button.setFont(font)
+        self.R_button.setObjectName("R_button")
+        #S
+        self.S_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("S"))
         self.S_button.setGeometry(QtCore.QRect(20, 370, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.S_button.setFont(font)
         self.S_button.setObjectName("S_button")
-        self.U_button = QtWidgets.QPushButton(self.centralwidget)
+        #T
+        self.T_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("T"))
+        self.T_button.setGeometry(QtCore.QRect(70, 370, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.T_button.setFont(font)
+        self.T_button.setObjectName("T_button")
+        #U
+        self.U_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("U"))
         self.U_button.setGeometry(QtCore.QRect(120, 370, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.U_button.setFont(font)
         self.U_button.setObjectName("U_button")
-        self.V_button = QtWidgets.QPushButton(self.centralwidget)
+        #V
+        self.V_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("V"))
         self.V_button.setGeometry(QtCore.QRect(170, 370, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.V_button.setFont(font)
         self.V_button.setObjectName("V_button")
-        self.W_button = QtWidgets.QPushButton(self.centralwidget)
+        #W
+        self.W_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("W"))
         self.W_button.setGeometry(QtCore.QRect(220, 370, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.W_button.setFont(font)
         self.W_button.setObjectName("W_button")
-        self.Z_button = QtWidgets.QPushButton(self.centralwidget)
-        self.Z_button.setGeometry(QtCore.QRect(70, 420, 41, 41))
+        #X
+        self.X_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("X"))
+        self.X_button.setGeometry(QtCore.QRect(270, 370, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.Z_button.setFont(font)
-        self.Z_button.setObjectName("Z_button")
-        self.three_button = QtWidgets.QPushButton(self.centralwidget)
-        self.three_button.setGeometry(QtCore.QRect(270, 420, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.three_button.setFont(font)
-        self.three_button.setObjectName("three_button")
-        self.Y_button = QtWidgets.QPushButton(self.centralwidget)
+        self.X_button.setFont(font)
+        self.X_button.setObjectName("X_button")
+        #Y
+        self.Y_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("Y"))
         self.Y_button.setGeometry(QtCore.QRect(20, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.Y_button.setFont(font)
         self.Y_button.setObjectName("Y_button")
-        self.zero_button = QtWidgets.QPushButton(self.centralwidget)
+        #Z
+        self.Z_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("Z"))
+        self.Z_button.setGeometry(QtCore.QRect(70, 420, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.Z_button.setFont(font)
+        self.Z_button.setObjectName("Z_button")
+
+        """--------------------------------------------alphabets--------------------------------------------------"""
+
+        """--------------------------------------------numbers----------------------------------------------------"""
+
+        #0
+        self.zero_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(0))
         self.zero_button.setGeometry(QtCore.QRect(120, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.zero_button.setFont(font)
         self.zero_button.setObjectName("zero_button")
-        self.one_button = QtWidgets.QPushButton(self.centralwidget)
+        #1
+        self.one_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(1))
         self.one_button.setGeometry(QtCore.QRect(170, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.one_button.setFont(font)
         self.one_button.setObjectName("one_button")
-        self.two_button = QtWidgets.QPushButton(self.centralwidget)
+        #2
+        self.two_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(2))
         self.two_button.setGeometry(QtCore.QRect(220, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.two_button.setFont(font)
         self.two_button.setObjectName("two_button")
-        self.five_button = QtWidgets.QPushButton(self.centralwidget)
-        self.five_button.setGeometry(QtCore.QRect(70, 470, 41, 41))
+        #3
+        self.three_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(3))
+        self.three_button.setGeometry(QtCore.QRect(270, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
-        self.five_button.setFont(font)
-        self.five_button.setObjectName("five_button")
-        self.nine_button = QtWidgets.QPushButton(self.centralwidget)
-        self.nine_button.setGeometry(QtCore.QRect(270, 470, 41, 41))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.nine_button.setFont(font)
-        self.nine_button.setObjectName("nine_button")
-        self.four_button = QtWidgets.QPushButton(self.centralwidget)
+        self.three_button.setFont(font)
+        self.three_button.setObjectName("three_button")
+        #4
+        self.four_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(4))
         self.four_button.setGeometry(QtCore.QRect(20, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.four_button.setFont(font)
         self.four_button.setObjectName("four_button")
-        self.six_button = QtWidgets.QPushButton(self.centralwidget)
+        #5
+        self.five_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(5))
+        self.five_button.setGeometry(QtCore.QRect(70, 470, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.five_button.setFont(font)
+        self.five_button.setObjectName("five_button")
+        #6
+        self.six_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(6))
         self.six_button.setGeometry(QtCore.QRect(120, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.six_button.setFont(font)
         self.six_button.setObjectName("six_button")
-        self.seven_button = QtWidgets.QPushButton(self.centralwidget)
+        #7
+        self.seven_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(7))
         self.seven_button.setGeometry(QtCore.QRect(170, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.seven_button.setFont(font)
         self.seven_button.setObjectName("seven_button")
-        self.eight_button = QtWidgets.QPushButton(self.centralwidget)
+        #8
+        self.eight_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(8))
         self.eight_button.setGeometry(QtCore.QRect(220, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.eight_button.setFont(font)
         self.eight_button.setObjectName("eight_button")
-        self.ct1_button = QtWidgets.QPushButton(self.centralwidget)
+        #9
+        self.nine_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(9))
+        self.nine_button.setGeometry(QtCore.QRect(270, 470, 41, 41))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.nine_button.setFont(font)
+        self.nine_button.setObjectName("nine_button")
+
+        """--------------------------------------------numbers----------------------------------------------------"""
+
+        """-------------------------------------------code type---------------------------------------------------"""
+
+        #push button code type 1
+        self.ct1_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(1))
         self.ct1_button.setGeometry(QtCore.QRect(20, 190, 141, 23))
         self.ct1_button.setObjectName("ct1_button")
-        self.cd2_button = QtWidgets.QPushButton(self.centralwidget)
+        #push button code type 2
+        self.cd2_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(2))
         self.cd2_button.setGeometry(QtCore.QRect(170, 190, 141, 23))
         self.cd2_button.setObjectName("cd2_button")
-        self.cd3_button = QtWidgets.QPushButton(self.centralwidget)
+        #push button code type 3
+        self.cd3_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(3))
         self.cd3_button.setGeometry(QtCore.QRect(320, 190, 141, 23))
         self.cd3_button.setObjectName("cd3_button")
-        self.goback = QtWidgets.QPushButton(self.centralwidget)
+
+        """-------------------------------------------code type---------------------------------------------------"""
+
+        """-------------------------------------------commands----------------------------------------------------"""
+
+        #GO BACK
+        self.goback = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet("<<<"))
         self.goback.setGeometry(QtCore.QRect(320, 220, 61, 91))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.goback.setFont(font)
         self.goback.setObjectName("goback")
-        self.copy_code = QtWidgets.QPushButton(self.centralwidget)
-        self.copy_code.setGeometry(QtCore.QRect(400, 220, 61, 91))
+        #SPACE
+        self.space = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet(" "))
+        self.space.setGeometry(QtCore.QRect(400, 220, 61, 91))
         font = QtGui.QFont()
         font.setPointSize(14)
-        self.copy_code.setFont(font)
-        self.copy_code.setObjectName("copy_code")
-        self.translate_mode = QtWidgets.QPushButton(self.centralwidget)
+        self.space.setFont(font)
+        self.space.setObjectName("space")
+        #TRANSLATE MODE
+        self.translate_mode = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.mode("T"))
         self.translate_mode.setGeometry(QtCore.QRect(320, 320, 61, 91))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.translate_mode.setFont(font)
         self.translate_mode.setObjectName("translate_mode")
-        self.generate_mode = QtWidgets.QPushButton(self.centralwidget)
+        #GENERATE MODE
+        self.generate_mode = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.mode("G"))
         self.generate_mode.setGeometry(QtCore.QRect(400, 320, 61, 91))
         self.generate_mode.setObjectName("generate_mode")
+        #TRANSLATE
         self.translate = QtWidgets.QPushButton(self.centralwidget)
         self.translate.setGeometry(QtCore.QRect(320, 420, 61, 91))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.translate.setFont(font)
         self.translate.setObjectName("translate")
+        #GENERATE
         self.generate = QtWidgets.QPushButton(self.centralwidget)
         self.generate.setGeometry(QtCore.QRect(400, 420, 61, 91))
         self.generate.setObjectName("generate")
+
+        """-------------------------------------------commands----------------------------------------------------"""
+
         Ignite.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Ignite)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 481, 21))
@@ -326,10 +392,10 @@ class Ui_Ignite(object):
         _translate = QtCore.QCoreApplication.translate
         Ignite.setWindowTitle(_translate("Ignite", "IGNITE"))
         self.codetype1.setText(_translate("Ignite", "CODE TYPE 1"))
-        self.codetype2.setText(_translate("Ignite", "CODE TYPE 2"))
-        self.codetype3.setText(_translate("Ignite", "CODE TYPE 3"))
+        self.codetype2.setText(_translate("Ignite", " "))
+        self.codetype3.setText(_translate("Ignite", " "))
         self.translate_label.setText(_translate("Ignite", "T"))
-        self.generate_label.setText(_translate("Ignite", "G"))
+        self.generate_label.setText(_translate("Ignite", " "))
         self.upper_label.setText(_translate("Ignite", "S :"))
         self.lower_label.setText(_translate("Ignite", "C :"))
         self.A_button.setText(_translate("Ignite", "A"))
@@ -372,7 +438,7 @@ class Ui_Ignite(object):
         self.cd2_button.setText(_translate("Ignite", "CODE TYPE 2"))
         self.cd3_button.setText(_translate("Ignite", "CODE TYPE 3"))
         self.goback.setText(_translate("Ignite", "<<<"))
-        self.copy_code.setText(_translate("Ignite", "COPY"))
+        self.space.setText(_translate("Ignite", "SPACE"))
         self.translate_mode.setText(_translate("Ignite", "TRANSLATE\n"
 "MODE"))
         self.generate_mode.setText(_translate("Ignite", "GENERATE\n"
@@ -380,6 +446,37 @@ class Ui_Ignite(object):
         self.translate.setText(_translate("Ignite", "TRANSLATE"))
         self.generate.setText(_translate("Ignite", "GENERATE"))
 
+    def alphabet(self, cha):
+        global word
+        if cha == "<<<":
+            word = word[:-1]
+        else:
+            word += cha
+        self.upper_label_input.setText(word)
+    def num(self, no):
+        global word
+        word += str(no)
+        self.upper_label_input.setText(word)
+    def mode(self, tg):
+        if tg == "T":
+            self.translate_label.setText("T")
+            self.generate_label.setText(" ")
+        elif tg == "G":
+            self.translate_label.setText(" ")
+            self.generate_label.setText("G")
+    def codetype(self, ct):
+        if ct == 1:
+            self.codetype1.setText("CODE TYPE 1")
+            self.codetype2.setText(" ")
+            self.codetype3.setText(" ")
+        elif ct == 2:
+            self.codetype1.setText(" ")
+            self.codetype2.setText("CODE TYPE 2")
+            self.codetype3.setText(" ")
+        elif ct == 3:
+            self.codetype1.setText(" ")
+            self.codetype2.setText(" ")
+            self.codetype3.setText("CODE TYPE 3")
 
 if __name__ == "__main__":
     import sys
