@@ -1,6 +1,24 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 word = ""
+num_code = 1
+result = ""
+status = "G"
+ct2 = {'A':'N', 'B':'V', 'C':'Q', 'D':'P', 'E':'U',\
+           'F':'Z', 'G':'W', 'H':'R', 'I':'O', 'J':'T',\
+           'K':'Y', 'L':'X', 'M':'S', 'N':'A', 'O':'I',\
+           'P':'D', 'Q':'C', 'R':'H', 'S':'M', 'T':'J',\
+           'U':'E', 'V':'B', 'W':'G', 'X':'L', 'Y':'K', 'Z':'F'}
+ct3 = {'A':'K', 'B':'L', 'C':'M', 'D':'N', 'E':'O',\
+           'F':'P', 'G':'Q', 'H':'R', 'I':'S', 'J':'T',\
+           'K':'U', 'L':'V', 'M':'W', 'N':'X', 'O':'Y',\
+           'P':'Z', 'Q':'G', 'R':'H','S':'I', 'T':'J',\
+           'U':'A', 'V':'B', 'W':'C', 'X':'D', 'Y':'E', 'Z':'F'}
+reverse_ct3 = {'A':'U', 'B':'V', 'C':'W', 'D':'X', 'E':'Y',\
+           'F':'Z', 'G':'Q', 'H':'R', 'I':'S', 'J':'T',\
+           'K':'A', 'L':'B', 'M':'C', 'N':'D', 'O':'E',\
+           'P':'F', 'Q':'G', 'R':'H','S':'I', 'T':'J',\
+           'U':'K', 'V':'L', 'W':'M', 'X':'N', 'Y':'O', 'Z':'P'}
 class Ui_Ignite(object):
     def setupUi(self, Ignite):
         Ignite.setObjectName("Ignite")
@@ -363,14 +381,14 @@ class Ui_Ignite(object):
         self.generate_mode.setGeometry(QtCore.QRect(400, 320, 61, 91))
         self.generate_mode.setObjectName("generate_mode")
         #TRANSLATE
-        self.translate = QtWidgets.QPushButton(self.centralwidget)
+        self.translate = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.command("T"))
         self.translate.setGeometry(QtCore.QRect(320, 420, 61, 91))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.translate.setFont(font)
         self.translate.setObjectName("translate")
         #GENERATE
-        self.generate = QtWidgets.QPushButton(self.centralwidget)
+        self.generate = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.command("G"))
         self.generate.setGeometry(QtCore.QRect(400, 420, 61, 91))
         self.generate.setObjectName("generate")
 
@@ -394,8 +412,8 @@ class Ui_Ignite(object):
         self.codetype1.setText(_translate("Ignite", "CODE TYPE 1"))
         self.codetype2.setText(_translate("Ignite", " "))
         self.codetype3.setText(_translate("Ignite", " "))
-        self.translate_label.setText(_translate("Ignite", "T"))
-        self.generate_label.setText(_translate("Ignite", " "))
+        self.translate_label.setText(_translate("Ignite", " "))
+        self.generate_label.setText(_translate("Ignite", "G"))
         self.upper_label.setText(_translate("Ignite", "S :"))
         self.lower_label.setText(_translate("Ignite", "C :"))
         self.A_button.setText(_translate("Ignite", "A"))
@@ -457,30 +475,106 @@ class Ui_Ignite(object):
         global word
         word += str(no)
         self.upper_label_input.setText(word)
-    def mode(self, tg):
-        if tg == "T":
+    def mode(self, mode_tg):
+        global word
+        global status
+        if mode_tg == "T":
+            word = ""
+            status = "T"
             self.translate_label.setText("T")
             self.generate_label.setText(" ")
-            self.upper_label.setText("S :")
-            self.lower_label.setText("C :")
-        elif tg == "G":
-            self.translate_label.setText(" ")
-            self.generate_label.setText("G")
             self.upper_label.setText("C :")
             self.lower_label.setText("S :")
+            self.upper_label_input.setText(word)
+            self.lower_label_output.setText("")
+        elif mode_tg == "G":
+            word = ""
+            status = "G"
+            self.translate_label.setText(" ")
+            self.generate_label.setText("G")
+            self.upper_label.setText("S :")
+            self.lower_label.setText("C :")
+            self.upper_label_input.setText(word)
+            self.lower_label_output.setText("")
     def codetype(self, ct):
+        global word
+        global num_code
         if ct == 1:
+            num_code = 1
+            word = ""
             self.codetype1.setText("CODE TYPE 1")
             self.codetype2.setText(" ")
             self.codetype3.setText(" ")
+            self.upper_label_input.setText(word)
+            self.lower_label_output.setText("")
         elif ct == 2:
+            num_code = 2
+            word = ""
             self.codetype1.setText(" ")
             self.codetype2.setText("CODE TYPE 2")
             self.codetype3.setText(" ")
+            self.upper_label_input.setText(word)
+            self.lower_label_output.setText("")
         elif ct == 3:
+            num_code = 3
+            word = ""
             self.codetype1.setText(" ")
             self.codetype2.setText(" ")
             self.codetype3.setText("CODE TYPE 3")
+            self.upper_label_input.setText(word)
+            self.lower_label_output.setText("")
+    def command(self, com_tg):
+        global result
+        if com_tg == "T" and status == "T":
+            if num_code == 1:
+                for i in word:
+                    if i.isalpha():
+                        result += chr(155-ord(i))
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
+            elif num_code == 2:
+                for i in word:
+                    if i.isalpha():
+                        result += ct2.get(i)
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
+            elif num_code == 3:
+                for i in word:
+                    if i.isalpha():
+                        result += reverse_ct3.get(i)
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
+        elif com_tg == "G" and status == "G":
+            if num_code == 1:
+                for i in word:
+                    if i.isalpha():
+                        result += chr(155-ord(i))
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
+            elif num_code == 2:
+                for i in word:
+                    if i.isalpha():
+                        result += ct2.get(i)
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
+            elif num_code == 3:
+                for i in word:
+                    if i.isalpha():
+                        result += ct3.get(i)
+                    else:
+                        result += i
+                self.lower_label_output.setText(result)
+                result = ""
 
 if __name__ == "__main__":
     import sys
