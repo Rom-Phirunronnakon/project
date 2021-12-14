@@ -1,8 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-word = ""
+word1 = ""
+word2 = ""
 num_code = 1
-result = ""
+result1 = ""
+result2 = ""
 status = "G"
 ct2 = {'A':'N', 'B':'V', 'C':'Q', 'D':'P', 'E':'U',\
            'F':'Z', 'G':'W', 'H':'R', 'I':'O', 'J':'T',\
@@ -465,116 +467,194 @@ class Ui_Ignite(object):
         self.generate.setText(_translate("Ignite", "GENERATE"))
 
     def alphabet(self, cha):
-        global word
+        global word1
+        global word2
         if cha == "<<<":
-            word = word[:-1]
-        else:
-            word += cha
-        self.upper_label_input.setText(word)
+            if len(word1) == 45 and len(word2) > 0:
+                word2 = word2[:-1]
+                self.upper_label_input.setText(word1+"\n"+word2)
+            elif len(word1) > 0 and len(word2) == 0:
+                word1 = word1[:-1]
+                self.upper_label_input.setText(word1)
+        elif len(word1) < 45 and word2 == "":
+            word1 += cha
+            self.upper_label_input.setText(word1)
+        elif len(word1) == 45 and len(word2) <= 45:
+            word2 += cha
+            self.upper_label_input.setText(word1+"\n"+word2)
+
     def num(self, no):
-        global word
-        word += str(no)
-        self.upper_label_input.setText(word)
+        global word1
+        global word2
+        if len(word1) < 45 and word2 == "":
+            word1 += str(no)
+            self.upper_label_input.setText(word1)
+        elif len(word1) == 45 and len(word2) <= 45:
+            word2 += str(no)
+            self.upper_label_input.setText(word1+"\n"+word2)
+
     def mode(self, mode_tg):
-        global word
+        global word1
+        global word2
         global status
         if mode_tg == "T":
-            word = ""
+            word1 = ""
+            word2 = ""
             status = "T"
             self.translate_label.setText("T")
             self.generate_label.setText(" ")
             self.upper_label.setText("C :")
             self.lower_label.setText("S :")
-            self.upper_label_input.setText(word)
+            self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif mode_tg == "G":
-            word = ""
+            word1 = ""
+            word2 = ""
             status = "G"
             self.translate_label.setText(" ")
             self.generate_label.setText("G")
             self.upper_label.setText("S :")
             self.lower_label.setText("C :")
-            self.upper_label_input.setText(word)
+            self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
     def codetype(self, ct):
-        global word
+        global word1
+        global word2
         global num_code
         if ct == 1:
             num_code = 1
-            word = ""
+            word1 = ""
+            word2 = ""
             self.codetype1.setText("CODE TYPE 1")
             self.codetype2.setText(" ")
             self.codetype3.setText(" ")
-            self.upper_label_input.setText(word)
+            self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif ct == 2:
             num_code = 2
-            word = ""
+            word1 = ""
+            word2 = ""
             self.codetype1.setText(" ")
             self.codetype2.setText("CODE TYPE 2")
             self.codetype3.setText(" ")
-            self.upper_label_input.setText(word)
+            self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif ct == 3:
             num_code = 3
-            word = ""
+            word1 = ""
+            word2 = ""
             self.codetype1.setText(" ")
             self.codetype2.setText(" ")
             self.codetype3.setText("CODE TYPE 3")
-            self.upper_label_input.setText(word)
+            self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
     def command(self, com_tg):
-        global result
+        global result1
+        global result2
         if com_tg == "T" and status == "T":
             if num_code == 1:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += chr(155-ord(i))
+                        result1 += chr(155-ord(i))
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += chr(155-ord(i))
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
             elif num_code == 2:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += ct2.get(i)
+                        result1 += ct2.get(i)
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += ct2.get(i)
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
             elif num_code == 3:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += reverse_ct3.get(i)
+                        result1 += reverse_ct3.get(i)
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += reverse_ct3.get(i)
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
         elif com_tg == "G" and status == "G":
             if num_code == 1:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += chr(155-ord(i))
+                        result1 += chr(155-ord(i))
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += chr(155-ord(i))
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
             elif num_code == 2:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += ct2.get(i)
+                        result1 += ct2.get(i)
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += ct2.get(i)
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
             elif num_code == 3:
-                for i in word:
+                for i in word1:
                     if i.isalpha():
-                        result += ct3.get(i)
+                        result1 += reverse_ct3.get(i)
                     else:
-                        result += i
-                self.lower_label_output.setText(result)
-                result = ""
+                        result1 += i
+                for i in word2:
+                    if i.isalpha():
+                        result2 += reverse_ct3.get(i)
+                    else:
+                        result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
 
 if __name__ == "__main__":
     import sys
