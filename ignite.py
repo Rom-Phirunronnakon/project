@@ -6,21 +6,29 @@ num_code = 1
 result1 = ""
 result2 = ""
 status = "G"
+ct1 = {"0":"9", "1":"8", "2":"7", "3":"6", "4":"5",\
+    "5":"4", "6":"3", "7":"2", "8":"1", "9":"0"}
 ct2 = {'A':'N', 'B':'V', 'C':'Q', 'D':'P', 'E':'U',\
-           'F':'Z', 'G':'W', 'H':'R', 'I':'O', 'J':'T',\
-           'K':'Y', 'L':'X', 'M':'S', 'N':'A', 'O':'I',\
-           'P':'D', 'Q':'C', 'R':'H', 'S':'M', 'T':'J',\
-           'U':'E', 'V':'B', 'W':'G', 'X':'L', 'Y':'K', 'Z':'F'}
+    'F':'Z', 'G':'W', 'H':'R', 'I':'O', 'J':'T',\
+    'K':'Y', 'L':'X', 'M':'S', 'N':'A', 'O':'I',\
+    'P':'D', 'Q':'C', 'R':'H', 'S':'M', 'T':'J',\
+    'U':'E', 'V':'B', 'W':'G', 'X':'L', 'Y':'K', 'Z':'F',\
+    "0":"5", "1":"6", "2":"7", "3":"8", "4":"9",\
+    "9":"4", "8":"3", "7":"2", "6":"1", "5":"0",}
 ct3 = {'A':'K', 'B':'L', 'C':'M', 'D':'N', 'E':'O',\
-           'F':'P', 'G':'Q', 'H':'R', 'I':'S', 'J':'T',\
-           'K':'U', 'L':'V', 'M':'W', 'N':'X', 'O':'Y',\
-           'P':'Z', 'Q':'G', 'R':'H','S':'I', 'T':'J',\
-           'U':'A', 'V':'B', 'W':'C', 'X':'D', 'Y':'E', 'Z':'F'}
+    'F':'P', 'G':'Q', 'H':'R', 'I':'S', 'J':'T',\
+    'K':'U', 'L':'V', 'M':'W', 'N':'X', 'O':'Y',\
+    'P':'Z', 'Q':'G', 'R':'H','S':'I', 'T':'J',\
+    'U':'A', 'V':'B', 'W':'C', 'X':'D', 'Y':'E', 'Z':'F',\
+    "0":"2", "1":"3", "2":"4", "3":"5", "4":"6",\
+    "5":"7", "6":"8", "7":"9", "8":"0", "9":"1",}
 reverse_ct3 = {'A':'U', 'B':'V', 'C':'W', 'D':'X', 'E':'Y',\
            'F':'Z', 'G':'Q', 'H':'R', 'I':'S', 'J':'T',\
            'K':'A', 'L':'B', 'M':'C', 'N':'D', 'O':'E',\
            'P':'F', 'Q':'G', 'R':'H','S':'I', 'T':'J',\
-           'U':'K', 'V':'L', 'W':'M', 'X':'N', 'Y':'O', 'Z':'P'}
+           'U':'K', 'V':'L', 'W':'M', 'X':'N', 'Y':'O', 'Z':'P',\
+            "0":"8", "1":"9", "2":"0", "3":"1", "4":"2",\
+            "5":"3", "6":"4", "7":"5", "8":"6", "9":"7"}
 class Ui_Ignite(object):
     def setupUi(self, Ignite):
         Ignite.setObjectName("Ignite")
@@ -556,11 +564,15 @@ class Ui_Ignite(object):
                 for i in word1:
                     if i.isalpha():
                         result1 += chr(155-ord(i))
+                    elif i.isnumeric():
+                        result1 += ct1.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
                         result2 += chr(155-ord(i))
+                    elif i.isnumeric():
+                        result2 += ct1.get(i)
                     else:
                         result2 += i
                 if len(result1) > 0 and len(result2) == 0:
@@ -573,10 +585,14 @@ class Ui_Ignite(object):
                 for i in word1:
                     if i.isalpha():
                         result1 += ct2.get(i)
+                    elif i.isnumeric():
+                        result1 += ct2.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
+                        result2 += ct2.get(i)
+                    elif i.isnumeric():
                         result2 += ct2.get(i)
                     else:
                         result2 += i
@@ -590,10 +606,14 @@ class Ui_Ignite(object):
                 for i in word1:
                     if i.isalpha():
                         result1 += reverse_ct3.get(i)
+                    elif i.isnumeric():
+                        result1 += reverse_ct3.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
+                        result2 += reverse_ct3.get(i)
+                    elif i.isnumeric():
                         result2 += reverse_ct3.get(i)
                     else:
                         result2 += i
@@ -608,11 +628,15 @@ class Ui_Ignite(object):
                 for i in word1:
                     if i.isalpha():
                         result1 += chr(155-ord(i))
+                    elif i.isnumeric():
+                        result1 += ct1.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
                         result2 += chr(155-ord(i))
+                    elif i.isnumeric():
+                        result2 += ct1.get(i)
                     else:
                         result2 += i
                 if len(result1) > 0 and len(result2) == 0:
@@ -625,10 +649,14 @@ class Ui_Ignite(object):
                 for i in word1:
                     if i.isalpha():
                         result1 += ct2.get(i)
+                    elif i.isnumeric():
+                        result1 += ct2.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
+                        result2 += ct2.get(i)
+                    elif i.isnumeric():
                         result2 += ct2.get(i)
                     else:
                         result2 += i
@@ -641,12 +669,16 @@ class Ui_Ignite(object):
             elif num_code == 3:
                 for i in word1:
                     if i.isalpha():
-                        result1 += reverse_ct3.get(i)
+                        result1 += ct3.get(i)
+                    elif i.isnumeric():
+                        result1 += ct3.get(i)
                     else:
                         result1 += i
                 for i in word2:
                     if i.isalpha():
-                        result2 += reverse_ct3.get(i)
+                        result2 += ct3.get(i)
+                    elif i.isnumeric():
+                        result2 += ct3.get(i)
                     else:
                         result2 += i
                 if len(result1) > 0 and len(result2) == 0:
