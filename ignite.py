@@ -560,7 +560,11 @@ class Ui_Ignite(object):
         global result1
         global result2
         if com_tg == "T" and status == "T":
-            if num_code == 1:
+            if word1 == "" and word2 == "":
+                result1 = ""
+                result2 = ""
+                self.lower_label_output.setText(result1)
+            elif num_code == 1:
                 for i in word1:
                     if i.isalpha():
                         result1 += chr(155-ord(i))
@@ -624,7 +628,11 @@ class Ui_Ignite(object):
                 result1 = ""
                 result2 = ""
         elif com_tg == "G" and status == "G":
-            if num_code == 1:
+            if word1 == "" and word2 == "":
+                result1 = ""
+                result2 = ""
+                self.lower_label_output.setText(result1)
+            elif num_code == 1:
                 for i in word1:
                     if i.isalpha():
                         result1 += chr(155-ord(i))
