@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 word1 = ""
 word2 = ""
+check = ""
 num_code = 1
 result1 = ""
 result2 = ""
@@ -29,6 +30,20 @@ reverse_ct3 = {'A':'U', 'B':'V', 'C':'W', 'D':'X', 'E':'Y',\
            'U':'K', 'V':'L', 'W':'M', 'X':'N', 'Y':'O', 'Z':'P',\
             "0":"8", "1":"9", "2":"0", "3":"1", "4":"2",\
             "5":"3", "6":"4", "7":"5", "8":"6", "9":"7"}
+ct4 = {'A':'ZB', 'B':'AC', 'C':'BD', 'D':'CE', 'E':'DF',\
+           'F':'EG', 'G':'FH', 'H':'GI', 'I':'HJ', 'J':'IK',\
+           'K':'JL', 'L':'KM', 'M':'LN', 'N':'MO', 'O':'NP',\
+           'P':'OQ', 'Q':'PR', 'R':'QS','S':'RT', 'T':'SU',\
+           'U':'TV', 'V':'UW', 'W':'VX', 'X':'WY', 'Y':'XZ', 'Z':'YA', ' ':'SP',\
+            "0":"91", "1":"02", "2":"13", "3":"24", "4":"35",
+            "5":"46", "6":"57", "7":"68", "8":"79", "9":"80"}
+reverse_ct4 = {'ZB':'A', 'AC':'B', 'BD':'C', 'CE':'D', 'DF':'E',\
+           'EG':'F', 'FH':'G', 'GI':'H', 'HJ':'I', 'IK':'J',\
+           'JL':'K', 'KM':'L', 'LN':'M', 'MO':'N', 'NP':'O',\
+           'OQ':'P', 'PR':'Q', 'QS':'R','RT':'S', 'SU':'T',\
+           'TV':'U', 'UW':'V', 'VX':'W', 'WY':'X', 'XZ':'Y', 'YA':'Z', 'SP':' ',\
+            "91":"0", "02":"1", "13":"2", "24":"3", "35":"4",
+            "46":"5", "57":"6", "68":"7", "79":"8", "80":"9"}
 class Ui_Ignite(object):
     def setupUi(self, Ignite):
         Ignite.setObjectName("Ignite")
@@ -51,6 +66,9 @@ class Ui_Ignite(object):
         self.codetype3 = QtWidgets.QLabel(self.centralwidget)
         self.codetype3.setGeometry(QtCore.QRect(170, 20, 71, 16))
         self.codetype3.setObjectName("codetype3")
+        self.codetype4 = QtWidgets.QLabel(self.centralwidget)
+        self.codetype4.setGeometry(QtCore.QRect(240, 20, 71, 16))
+        self.codetype4.setObjectName("codetype4")
         self.translate_label = QtWidgets.QLabel(self.centralwidget)
         self.translate_label.setGeometry(QtCore.QRect(410, 10, 21, 31))
         self.translate_label.setObjectName("translate_label")
@@ -274,70 +292,70 @@ class Ui_Ignite(object):
         """--------------------------------------------numbers----------------------------------------------------"""
 
         #0
-        self.zero_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(0))
+        self.zero_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('0'))
         self.zero_button.setGeometry(QtCore.QRect(120, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.zero_button.setFont(font)
         self.zero_button.setObjectName("zero_button")
         #1
-        self.one_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(1))
+        self.one_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('1'))
         self.one_button.setGeometry(QtCore.QRect(170, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.one_button.setFont(font)
         self.one_button.setObjectName("one_button")
         #2
-        self.two_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(2))
+        self.two_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('2'))
         self.two_button.setGeometry(QtCore.QRect(220, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.two_button.setFont(font)
         self.two_button.setObjectName("two_button")
         #3
-        self.three_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(3))
+        self.three_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('3'))
         self.three_button.setGeometry(QtCore.QRect(270, 420, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.three_button.setFont(font)
         self.three_button.setObjectName("three_button")
         #4
-        self.four_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(4))
+        self.four_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('4'))
         self.four_button.setGeometry(QtCore.QRect(20, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.four_button.setFont(font)
         self.four_button.setObjectName("four_button")
         #5
-        self.five_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(5))
+        self.five_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('5'))
         self.five_button.setGeometry(QtCore.QRect(70, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.five_button.setFont(font)
         self.five_button.setObjectName("five_button")
         #6
-        self.six_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(6))
+        self.six_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('6'))
         self.six_button.setGeometry(QtCore.QRect(120, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.six_button.setFont(font)
         self.six_button.setObjectName("six_button")
         #7
-        self.seven_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(7))
+        self.seven_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('7'))
         self.seven_button.setGeometry(QtCore.QRect(170, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.seven_button.setFont(font)
         self.seven_button.setObjectName("seven_button")
         #8
-        self.eight_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(8))
+        self.eight_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('8'))
         self.eight_button.setGeometry(QtCore.QRect(220, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.eight_button.setFont(font)
         self.eight_button.setObjectName("eight_button")
         #9
-        self.nine_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.num(9))
+        self.nine_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.alphabet('9'))
         self.nine_button.setGeometry(QtCore.QRect(270, 470, 41, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
@@ -350,16 +368,20 @@ class Ui_Ignite(object):
 
         #push button code type 1
         self.ct1_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(1))
-        self.ct1_button.setGeometry(QtCore.QRect(20, 190, 141, 23))
+        self.ct1_button.setGeometry(QtCore.QRect(20, 190, 111, 23))
         self.ct1_button.setObjectName("ct1_button")
         #push button code type 2
         self.cd2_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(2))
-        self.cd2_button.setGeometry(QtCore.QRect(170, 190, 141, 23))
+        self.cd2_button.setGeometry(QtCore.QRect(130, 190, 111, 23))
         self.cd2_button.setObjectName("cd2_button")
         #push button code type 3
         self.cd3_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(3))
-        self.cd3_button.setGeometry(QtCore.QRect(320, 190, 141, 23))
+        self.cd3_button.setGeometry(QtCore.QRect(240, 190, 111, 23))
         self.cd3_button.setObjectName("cd3_button")
+        #push button code type 4
+        self.cd4_button = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.codetype(4))
+        self.cd4_button.setGeometry(QtCore.QRect(350, 190, 111, 23))
+        self.cd4_button.setObjectName("cd4_button")
 
         """-------------------------------------------code type---------------------------------------------------"""
 
@@ -422,6 +444,7 @@ class Ui_Ignite(object):
         self.codetype1.setText(_translate("Ignite", "CODE TYPE 1"))
         self.codetype2.setText(_translate("Ignite", " "))
         self.codetype3.setText(_translate("Ignite", " "))
+        self.codetype4.setText(_translate("Ignite", " "))
         self.translate_label.setText(_translate("Ignite", " "))
         self.generate_label.setText(_translate("Ignite", "G"))
         self.upper_label.setText(_translate("Ignite", "S :"))
@@ -465,6 +488,7 @@ class Ui_Ignite(object):
         self.ct1_button.setText(_translate("Ignite", "CODE TYPE 1"))
         self.cd2_button.setText(_translate("Ignite", "CODE TYPE 2"))
         self.cd3_button.setText(_translate("Ignite", "CODE TYPE 3"))
+        self.cd4_button.setText(_translate("Ignite", "CODE TYPE 4"))
         self.goback.setText(_translate("Ignite", "<<<"))
         self.space.setText(_translate("Ignite", "SPACE"))
         self.translate_mode.setText(_translate("Ignite", "TRANSLATE\n"
@@ -477,29 +501,48 @@ class Ui_Ignite(object):
     def alphabet(self, cha):
         global word1
         global word2
-        if cha == "<<<":
-            if len(word1) == 45 and len(word2) > 0:
-                word2 = word2[:-1]
-                self.upper_label_input.setText(word1+"\n"+word2)
-            elif len(word1) > 0 and len(word2) == 0:
-                word1 = word1[:-1]
+        if num_code == 4 and status == "G":
+            if cha == "<<<":
+                if len(word1) == 22 and len(word2) > 0:
+                    word2 = word2[:-1]
+                    self.upper_label_input.setText(word1+"\n"+word2)
+                elif len(word1) > 0 and len(word2) == 0:
+                    word1 = word1[:-1]
+                    self.upper_label_input.setText(word1)
+            elif len(word1) < 22 and word2 == "":
+                word1 += cha
                 self.upper_label_input.setText(word1)
-        elif len(word1) < 45 and word2 == "":
-            word1 += cha
-            self.upper_label_input.setText(word1)
-        elif len(word1) == 45 and len(word2) <= 45:
-            word2 += cha
-            self.upper_label_input.setText(word1+"\n"+word2)
-
-    def num(self, no):
-        global word1
-        global word2
-        if len(word1) < 45 and word2 == "":
-            word1 += str(no)
-            self.upper_label_input.setText(word1)
-        elif len(word1) == 45 and len(word2) <= 45:
-            word2 += str(no)
-            self.upper_label_input.setText(word1+"\n"+word2)
+            elif len(word1) == 22 and len(word2) <= 22:
+                word2 += cha
+                self.upper_label_input.setText(word1+"\n"+word2)
+        if num_code == 4 and status == "T":
+            if cha == "<<<":
+                if len(word1) == 44 and len(word2) > 0:
+                    word2 = word2[:-1]
+                    self.upper_label_input.setText(word1+"\n"+word2)
+                elif len(word1) > 0 and len(word2) == 0:
+                    word1 = word1[:-1]
+                    self.upper_label_input.setText(word1)
+            elif len(word1) < 44 and word2 == "":
+                word1 += cha
+                self.upper_label_input.setText(word1)
+            elif len(word1) == 44 and len(word2) <= 44:
+                word2 += cha
+                self.upper_label_input.setText(word1+"\n"+word2)
+        elif num_code != 4:
+            if cha == "<<<":
+                if len(word1) == 45 and len(word2) > 0:
+                    word2 = word2[:-1]
+                    self.upper_label_input.setText(word1+"\n"+word2)
+                elif len(word1) > 0 and len(word2) == 0:
+                    word1 = word1[:-1]
+                    self.upper_label_input.setText(word1)
+            elif len(word1) < 45 and word2 == "":
+                word1 += cha
+                self.upper_label_input.setText(word1)
+            elif len(word1) == 45 and len(word2) <= 45:
+                word2 += cha
+                self.upper_label_input.setText(word1+"\n"+word2)
 
     def mode(self, mode_tg):
         global word1
@@ -556,6 +599,15 @@ class Ui_Ignite(object):
             self.codetype3.setText("CODE TYPE 3")
             self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
+        elif ct == 4:
+            num_code = 4
+            word1 = ""
+            word2 = ""
+            self.codetype1.setText(" ")
+            self.codetype2.setText(" ")
+            self.codetype3.setText("CODE TYPE 4")
+            self.upper_label_input.setText(word1)
+            self.lower_label_output.setText("")
     def command(self, com_tg):
         global result1
         global result2
@@ -587,16 +639,12 @@ class Ui_Ignite(object):
                 result2 = ""
             elif num_code == 2:
                 for i in word1:
-                    if i.isalpha():
-                        result1 += ct2.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result1 += ct2.get(i)
                     else:
                         result1 += i
                 for i in word2:
-                    if i.isalpha():
-                        result2 += ct2.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result2 += ct2.get(i)
                     else:
                         result2 += i
@@ -608,16 +656,12 @@ class Ui_Ignite(object):
                 result2 = ""
             elif num_code == 3:
                 for i in word1:
-                    if i.isalpha():
-                        result1 += reverse_ct3.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result1 += reverse_ct3.get(i)
                     else:
                         result1 += i
                 for i in word2:
-                    if i.isalpha():
-                        result2 += reverse_ct3.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result2 += reverse_ct3.get(i)
                     else:
                         result2 += i
@@ -627,6 +671,22 @@ class Ui_Ignite(object):
                     self.lower_label_output.setText(result1+"\n"+result2)
                 result1 = ""
                 result2 = ""
+            elif num_code == 4 and len(word1)%2 == 0 and len(word2)%2 == 0:
+                try:
+                    for i in range(0, len(word1)-1, 2):
+                        result1 += reverse_ct4.get(word1[i]+word1[i+1])
+                    for i in range(0, len(word2)-1, 2):
+                        result2 += reverse_ct4.get(word2[i]+word2[i+1])
+                    if len(result1) > 0 and len(result2) == 0:
+                        self.lower_label_output.setText(result1)
+                    elif len(result1) > 0 and len(result2) > 0:
+                        self.lower_label_output.setText(result1+"\n"+result2)
+                    result1 = ""
+                    result2 = ""
+                except TypeError:
+                    self.lower_label_output.setText("Inappropriate code")
+            elif num_code == 4 and (len(word1)%2 != 0 or len(word2)%2 != 0):
+                self.lower_label_output.setText("Inappropriate code")
         elif com_tg == "G" and status == "G":
             if word1 == "" and word2 == "":
                 result1 = ""
@@ -655,16 +715,12 @@ class Ui_Ignite(object):
                 result2 = ""
             elif num_code == 2:
                 for i in word1:
-                    if i.isalpha():
-                        result1 += ct2.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result1 += ct2.get(i)
                     else:
                         result1 += i
                 for i in word2:
-                    if i.isalpha():
-                        result2 += ct2.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result2 += ct2.get(i)
                     else:
                         result2 += i
@@ -676,19 +732,26 @@ class Ui_Ignite(object):
                 result2 = ""
             elif num_code == 3:
                 for i in word1:
-                    if i.isalpha():
-                        result1 += ct3.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result1 += ct3.get(i)
                     else:
                         result1 += i
                 for i in word2:
-                    if i.isalpha():
-                        result2 += ct3.get(i)
-                    elif i.isnumeric():
+                    if i.isalnum():
                         result2 += ct3.get(i)
                     else:
                         result2 += i
+                if len(result1) > 0 and len(result2) == 0:
+                    self.lower_label_output.setText(result1)
+                elif len(result1) > 0 and len(result2) > 0:
+                    self.lower_label_output.setText(result1+"\n"+result2)
+                result1 = ""
+                result2 = ""
+            elif num_code == 4:
+                for i in word1:
+                    result1 += ct4.get(i)
+                for i in word2:
+                    result2 += ct4.get(i)
                 if len(result1) > 0 and len(result2) == 0:
                     self.lower_label_output.setText(result1)
                 elif len(result1) > 0 and len(result2) > 0:

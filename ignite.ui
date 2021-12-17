@@ -149,7 +149,7 @@
       <x>50</x>
       <y>40</y>
       <width>381</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -838,7 +838,7 @@
      <rect>
       <x>20</x>
       <y>190</y>
-      <width>141</width>
+      <width>111</width>
       <height>23</height>
      </rect>
     </property>
@@ -849,9 +849,9 @@
    <widget class="QPushButton" name="cd2_button">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>130</x>
       <y>190</y>
-      <width>141</width>
+      <width>111</width>
       <height>23</height>
      </rect>
     </property>
@@ -862,9 +862,9 @@
    <widget class="QPushButton" name="cd3_button">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>240</x>
       <y>190</y>
-      <width>141</width>
+      <width>111</width>
       <height>23</height>
      </rect>
     </property>
@@ -890,7 +890,7 @@
      <string>&lt;&lt;&lt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="copy_code">
+   <widget class="QPushButton" name="space">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -905,7 +905,7 @@
      </font>
     </property>
     <property name="text">
-     <string>COPY</string>
+     <string>SPACE</string>
     </property>
    </widget>
    <widget class="QPushButton" name="translate_mode">
@@ -970,6 +970,32 @@ MODE</string>
     </property>
     <property name="text">
      <string>GENERATE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="codetype4">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>20</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CODE TYPE 4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cd4_button">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>190</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CODE TYPE 4</string>
     </property>
    </widget>
   </widget>
