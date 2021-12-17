@@ -579,6 +579,7 @@ class Ui_Ignite(object):
             self.codetype1.setText("CODE TYPE 1")
             self.codetype2.setText(" ")
             self.codetype3.setText(" ")
+            self.codetype4.setText(" ")
             self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif ct == 2:
@@ -588,6 +589,7 @@ class Ui_Ignite(object):
             self.codetype1.setText(" ")
             self.codetype2.setText("CODE TYPE 2")
             self.codetype3.setText(" ")
+            self.codetype4.setText(" ")
             self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif ct == 3:
@@ -597,6 +599,7 @@ class Ui_Ignite(object):
             self.codetype1.setText(" ")
             self.codetype2.setText(" ")
             self.codetype3.setText("CODE TYPE 3")
+            self.codetype4.setText(" ")
             self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
         elif ct == 4:
@@ -605,7 +608,8 @@ class Ui_Ignite(object):
             word2 = ""
             self.codetype1.setText(" ")
             self.codetype2.setText(" ")
-            self.codetype3.setText("CODE TYPE 4")
+            self.codetype3.setText(" ")
+            self.codetype4.setText("CODE TYPE 4")
             self.upper_label_input.setText(word1)
             self.lower_label_output.setText("")
     def command(self, com_tg):
